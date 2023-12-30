@@ -1,0 +1,29 @@
+
+<div style="text-align: center; width: 100%;">
+    <mat-icon id="goPrv" (click)="goPrv()">skip_previous</mat-icon> &nbsp; <span style="font-size: 20px; font-weight: bold;">Beneficiários</span> &nbsp; <mat-icon id="goNex" (click)="goNex()">skip_next</mat-icon>
+    <br>
+    <button class="round" (click)="novoBeneficiario()">Incluir Beneficiário</button>
+</div>
+<br>
+<mat-grid-list cols="4" rowHeight="25px" style="margin-left: 10%; margin-right: 10%; flex-grow: 1; overflow: auto;">
+    <mat-grid-tile
+    *ngFor="let g of gradeTitulo"
+    [colspan]="g.cols"
+    [rowspan]="g.rows"
+    [ngStyle]="{'font-weight': 'bold', 'background-color': 'lightgray'}">
+    <div style="position: absolute; left: 5px;">
+        {{g.text}}
+    </div>
+    </mat-grid-tile>
+</mat-grid-list>
+<mat-grid-list cols="4" rowHeight="25px" style="margin-left: 10%; margin-right: 10%; flex-grow: 1; overflow: auto;">
+    <mat-grid-tile
+        *ngFor="let g of grade"
+        [colspan]="g.cols"
+        [rowspan]="g.rows">
+        <div style="position: absolute; left: 5px;">
+            <span style="cursor: pointer;" (click)="editarBeneficiario(g.id)">{{g.text}}</span>
+        </div>
+    </mat-grid-tile>
+</mat-grid-list>
+

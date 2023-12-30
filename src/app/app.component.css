@@ -1,0 +1,8 @@
+.textoGrid {
+    position: absolute;
+    left: 5px;
+}
+
+.oculto {
+    display: none;
+}

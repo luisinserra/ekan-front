@@ -1,0 +1,17 @@
+.oculto {
+    display: none;
+}
+
+.my-custom-snackbar {
+    margin: 0 !important;
+    position: absolute;
+    right: 25px;
+    top: 60px;
+}
+
+.my-snack {
+    display: grid !important;
+    place-items: center !important;
+    position: absolute;
+    top: 60px;
+}

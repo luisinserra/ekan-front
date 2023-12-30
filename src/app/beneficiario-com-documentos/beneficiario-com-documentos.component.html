@@ -1,0 +1,155 @@
+<div style="text-align: center; width: 100%;">
+    <span style="font-size: 20px; font-weight: bold;">
+        {{beneficiario.nome}}
+    </span>
+    <br>
+        <button class="round" (click)="goLista()">Retornar à Lista</button>
+        &nbsp;
+        <button class="round" (click)="apagarBeneficiario()">Remover Beneficiário</button>
+</div>
+
+<br>
+<div>
+    <table class="centrado">
+        <tr>
+            <td class="celula cinza">
+                <span style="float: right;">
+                    <b>Nome:</b>
+                </span>
+            </td>
+            <td class="celula cinzaClaro">
+                <span id="spanNome">
+                    {{beneficiario.nome}}
+                </span>
+                <span id="spanINome" class="oculto">
+                    <input type="text" [(ngModel)]="tNome">
+                    <span style="float: right;">
+                        <mat-icon (click)="alteraNome()" style="color: green;">done</mat-icon>
+                        <mat-icon (click)="fechaNome()" style="color: rgb(214, 214, 31);">cancel_presentation</mat-icon>
+                    </span>
+                </span>
+            </td>
+            <td class="celula">
+                <span (click)="editandoNome()">
+                    <mat-icon>edit</mat-icon>
+                </span>
+            </td>
+        </tr>
+
+        <tr>
+            <td class="celula cinza">
+                <span style="float: right;">
+                    <b>Telefone:</b>
+                </span>
+            </td>
+            <td class="celula cinzaClaro">
+                <span id="spanFone">
+                    {{beneficiario.telefone}}
+                </span>
+                <span id="spanIFone" class="oculto">
+                    <input id="tFone" type="text" [(ngModel)]="tFone" (keyup)="formataFone('tFone','2')">
+                    <span style="float: right;">
+                        <mat-icon (click)="alteraFone()" style="color: green;">done</mat-icon>
+                        <mat-icon (click)="fechaFone()" style="color: rgb(214, 214, 31);">cancel_presentation</mat-icon>
+                    </span>
+                </span>
+            </td>
+            <td class="celula">
+                <mat-icon (click)="editandoFone()">edit</mat-icon>
+            </td>
+        </tr>
+
+        <tr>
+            <td class="celula cinza">
+                <span style="float: right;">
+                    <b>Data Nascimento:</b>
+                </span>
+            </td>
+            <td class="celula cinzaClaro">
+                <span id="spanData">
+                    {{beneficiario.dtNascimento}}
+                </span>
+                <span id="spanIData" class="oculto">
+                    <input id="tData" type="text" [(ngModel)]="tData" (keyup)="formataData()">
+                    <span style="float: right;">
+                        <mat-icon (click)="alteraData()" style="color: green;">done</mat-icon>
+                        <mat-icon (click)="fechaData()" style="color: rgb(214, 214, 31);">cancel_presentation</mat-icon>
+                    </span>
+                </span>
+            </td>
+            <td class="celula">
+                <mat-icon (click)="editandoData()">edit</mat-icon>
+            </td>
+        </tr>
+
+        <tr>
+            <td class="celula cinza">
+                <span style="float: right;">
+                    <b>Data Inclusão:</b>
+                </span>
+            </td>
+            <td class="celula cinzaClaro">
+                {{beneficiario.dtInclusao}}
+            </td>
+            <td class="celula">
+                &nbsp;
+            </td>
+        </tr>
+
+        <tr>
+            <td class="celula cinza">
+                <span style="float: right;">
+                    <b>Data Atualização:</b>
+                </span>
+            </td>
+            <td class="celula cinzaClaro">
+                {{beneficiario.dtAtualizacao}}
+            </td>
+            <td class="celula">
+                &nbsp;
+            </td>
+        </tr>
+    </table>
+    <br>
+    <div style="text-align: center; width: 100%;">
+        <span style="font-size: 20px; font-weight: bold;">
+            Documentos de {{beneficiario.nome}}
+        </span>
+        <br>
+        <button class="round" (click)="novoDocumento()">Incluir Documento</button>
+    </div>
+    <br>
+    <mat-grid-list cols="4" rowHeight="25px" style="margin-left: 15%; margin-right: 15%; flex-grow: 1; overflow: auto;">
+        <mat-grid-tile
+            *ngFor="let g of gradeTitulo"
+            [colspan]="g.cols"
+            [rowspan]="g.rows"
+            [ngStyle]="{'font-weight': 'bold', 'background-color': 'lightgray'}">
+            <div style="position: absolute; left: 5px; font-size: 16px;">
+                {{g.text}}
+            </div>
+        </mat-grid-tile>
+    </mat-grid-list>
+
+    <mat-grid-list cols="4" rowHeight="25px" style="margin-left: 15%; margin-right: 15%; flex-grow: 1; overflow: auto;">
+        <mat-grid-tile
+            *ngFor="let g of grade"
+            [colspan]="g.cols"
+            [rowspan]="g.rows">
+            <div style="position: absolute; left: 5px; font-size: 16px;">
+                <span style="cursor: pointer;" (click)="editarDocumento(g.id)">{{g.text}}</span>
+            </div>
+        </mat-grid-tile>
+    </mat-grid-list>
+    
+    <ng-template let-data #myInfoDialog>
+        <h2 mat-dialog-title>Information</h2>
+        <div mat-dialog-content>
+          {{data}}
+        </div>
+        <div mat-dialog-actions>
+          <button mat-button mat-dialog-close>Close</button>
+        </div>
+    </ng-template>
+    <br>
+</div>

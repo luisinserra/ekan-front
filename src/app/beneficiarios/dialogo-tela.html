@@ -1,0 +1,55 @@
+<style>
+.oculto {
+    display: none;
+}
+</style>
+<br>
+<table style="font-family: Tahoma, Verdana, Geneva, Tahoma, sans-serif; font-size: 18px;">
+    <tr>
+        <td>
+            <span style="float: right;">
+                <b>Nome Beneficiário:</b>
+            </span>
+        </td>
+        <td>
+            <input id="tNome" style="font-size: 18px;" type="text" size="20" maxlength="20" (keyup)="digitacaoNome($event)">
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            <span style="float: right; font-size: 18px;">
+                <b>Telefone:</b>
+            </span>
+        </td>
+        <td>
+            <input id="tFone" style="font-size: 18px;" type="text" size="10" maxlength="20" (keyup)="digitacaoFone($event)">
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            <span style="float: right; font-size: 18px;">
+                <b>Data Nascimento:</b>
+            </span>
+        </td>
+        <td>
+            <input id="tData" style="font-size: 18px;" type="text" size="10" maxlength="20" (keyup)="digitacaoData($event)">
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            
+        </td>
+        <td>
+            <button style="font-size: 18px;" (click)="enviarPreenchimento()">Inserir</button>
+            &nbsp;
+            <button style="font-size: 18px;" (click)="fecharDialogo()">Fechar</button>
+        </td>
+    </tr>
+</table>
+
+<mat-dialog-actions align="end">
+    <button class="oculto" id="btFecha" mat-button mat-dialog-close></button>
+</mat-dialog-actions>

@@ -1,0 +1,59 @@
+<style>
+.oculto {
+    display: none;
+}
+</style>
+<br>
+<table style="font-family: Tahoma, Verdana, Geneva, Tahoma, sans-serif; font-size: 18px;">
+    <tr>
+        <td>
+            <span style="float: right;">
+                <b>Tipo de Documento:</b>
+            </span>
+        </td>
+        <td>
+            <select value="RG" id="selTipoDoc" style="font-family: Tahoma, Verdana, Geneva, Tahoma, sans-serif; font-size: 18px;" (change)="mudancaTipoEscolhido($event)">
+                <option value="">Escolha</option>
+                @for (d of documentos; track d.id) {
+                    <option value="{{d.tipoDocumento}}">{{d.descricao}}</option>
+                }
+            </select>
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            <span style="float: right; font-size: 18px;">
+                <b>Valor:</b>
+            </span>
+        </td>
+        <td>
+            <input id="tValor" style="font-size: 18px;" type="text" size="10" maxlength="20" (keyup)="digitacaoValor($event)">
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            
+        </td>
+        <td>
+            <button style="font-size: 18px;" (click)="enviarPreenchimento()">{{btInclui}}</button>
+            <span id="spanExclui" class="oculto">
+                &nbsp;
+                <button style="font-size: 18px;" (click)="chamarExclusaoDocumento()">Excluir</button>
+            </span>
+            &nbsp;
+            <button style="font-size: 18px;" (click)="fecharInclusao()">Fechar</button>
+        </td>
+    </tr>
+</table>
+
+<mat-dialog-actions align="end">
+    <button id="btFecha" mat-button mat-dialog-close></button>
+</mat-dialog-actions>
+
+<script id="idScript">
+    function setaValor() {
+        document.getElementById('selTipoDoc').options[1].selected=true
+    }
+</script>

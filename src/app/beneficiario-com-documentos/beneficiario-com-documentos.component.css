@@ -1,0 +1,25 @@
+.centrado {
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    border: 1px solid lightgrey;
+}
+
+.celula {
+    font-size: 18px;
+}
+
+.cinza {
+    background-color: lightgrey;
+}
+.cinzaClaro {
+    background-color: #e8e8e8;
+}
+
+.round {
+    border-radius: 5px;
+}
+
+.oculto {
+    display: none;
+}
